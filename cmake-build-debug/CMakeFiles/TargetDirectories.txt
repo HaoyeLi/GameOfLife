@@ -1,0 +1,3 @@
+/home/onerain233/SDL_GameOfLife/cmake-build-debug/CMakeFiles/SDL_GameOfLife.dir
+/home/onerain233/SDL_GameOfLife/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/onerain233/SDL_GameOfLife/cmake-build-debug/CMakeFiles/rebuild_cache.dir

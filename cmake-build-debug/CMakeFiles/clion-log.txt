@@ -1,0 +1,4 @@
+/opt/clion/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/opt/clion/bin/ninja/linux/ninja -G Ninja -S /home/onerain233/SDL_GameOfLife -B /home/onerain233/SDL_GameOfLife/cmake-build-debug
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/onerain233/SDL_GameOfLife/cmake-build-debug
