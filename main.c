@@ -9,6 +9,22 @@ char *map_filename = "map.txt";
 
 int **grid;
 
+void init(char *config_file) {
+	read_config(config_file);
+	
+	grid = malloc(sizeof(int *) * MAP_SIZE);
+	for (int i = 0; i < MAP_SIZE; i++) {
+		grid[i] = malloc(sizeof(int) * MAP_SIZE);
+		
+	}
+	for (int i = 0; i < MAP_SIZE; i++) {
+		for (int j = 0; j < MAP_SIZE; j++) {
+			grid[i][j] = 0;
+		}
+	}
+	read_map(map_filename);
+}
+
 int main() {
 
     return 0;
