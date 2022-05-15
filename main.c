@@ -9,6 +9,15 @@ char *map_filename = "map.txt";
 
 int **grid;
 
+void read_config(char *filename) {
+	FILE *fp = fopen(filename, "r");
+	fscanf(fp, "%d", &MAP_SIZE);
+	printf("%d\n", MAP_SIZE);
+	map_filename = malloc(sizeof(char) * 100);
+	fscanf(fp, "%s", map_filename);
+	fclose(fp);
+}
+
 void init(char *config_file) {
 	read_config(config_file);
 	
@@ -22,8 +31,8 @@ void init(char *config_file) {
 			grid[i][j] = 0;
 		}
 	}
-	read_map(map_filename);
 }
+
 
 int main() {
 
