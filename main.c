@@ -9,6 +9,20 @@ char *map_filename = "map.txt";
 
 int **grid;
 
+void read_map(char *filename) {
+	// 0000000000000
+	
+	FILE *fp = fopen(filename, "r");
+	for (int i = 0; i < MAP_SIZE; i++) {
+		for (int j = 0; j < MAP_SIZE; j++) {
+			char c;
+			fscanf(fp, "%c ", &c);
+			int val = atoi(&c);
+			grid[i][j] = val;
+		}
+	}
+}
+
 void read_config(char *filename) {
 	FILE *fp = fopen(filename, "r");
 	fscanf(fp, "%d", &MAP_SIZE);
