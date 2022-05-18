@@ -52,6 +52,7 @@ void show_map() {
 		for (int j = 0; j < MAP_SIZE; j++) {
 			printf("%d ", grid[i][j]);
 		}
+		printf("\n");
 	}
 }
 int main() {
