@@ -47,7 +47,13 @@ void init(char *config_file) {
 	}
 }
 
-
+void show_map() {
+	for (int i = 0; i < MAP_SIZE; i++) {
+		for (int j = 0; j < MAP_SIZE; j++) {
+			printf("%d ", grid[i][j]);
+		}
+	}
+}
 int main() {
 
     return 0;
