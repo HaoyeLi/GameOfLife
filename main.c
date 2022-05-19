@@ -56,6 +56,14 @@ void show_map() {
 	}
 }
 int main() {
-
+	init("config.txt");
+	SDL_Init(SDL_INIT_EVERYTHING);
+	
+	SDL_Window *window = SDL_CreateWindow("SDL2", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
+		MAP_SIZE * CELL_SIZE, MAP_SIZE * CELL_SIZE,
+		SDL_WINDOW_SHOWN);
+	SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC);
+	SDL_Rect rect = {1, 1, MAP_SIZE * CELL_SIZE - 1, MAP_SIZE * CELL_SIZE - 1};
+	show_map();
     return 0;
 }
