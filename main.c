@@ -95,6 +95,22 @@ int main() {
 	SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC);
 	SDL_Rect rect = {1, 1, MAP_SIZE * CELL_SIZE - 1, MAP_SIZE * CELL_SIZE - 1};
 	show_map();
-	
+	while (1) {
+		SDL_Event event;
+		while (SDL_PollEvent(&event)) {
+			if (event.type == SDL_QUIT) {
+				save_map(map_filename);
+				return 0;
+			}
+		}
+		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+		SDL_RenderClear(renderer);
+		SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+		render(renderer);
+		SDL_RenderPresent(renderer);
+		update_cells();
+		show_map();
+		SDL_Delay(1000);
+	}
     return 0;
 }
