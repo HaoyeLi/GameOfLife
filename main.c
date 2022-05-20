@@ -95,5 +95,6 @@ int main() {
 	SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC);
 	SDL_Rect rect = {1, 1, MAP_SIZE * CELL_SIZE - 1, MAP_SIZE * CELL_SIZE - 1};
 	show_map();
+	
     return 0;
 }
