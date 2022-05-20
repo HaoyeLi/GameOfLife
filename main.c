@@ -47,6 +47,36 @@ void init(char *config_file) {
 	}
 }
 
+void update_cells() {
+	int **tmp = malloc(sizeof(int *) * MAP_SIZE);
+	for (int i = 0; i < MAP_SIZE; i++) {
+		tmp[i] = malloc(sizeof(int) * MAP_SIZE);
+	}
+	
+	for (int i = 0; i < MAP_SIZE; i++) {
+		for (int j = 0; j < MAP_SIZE; j++) {
+			tmp[i][j] = grid[i][j];
+		}
+	}
+	
+	for (int i = 0; i < MAP_SIZE; i++) {
+		for (int j = 0; j < MAP_SIZE; j++) {
+			int cnt = get_cnt(i, j);
+			if (grid[i][j] == 1) {
+				if (cnt < 2 || cnt > 3) {
+					tmp[i][j] = 0;
+				}
+			} else {
+				if (cnt == 3) {
+					tmp[i][j] = 1;
+				}
+			}
+		}
+	}
+	memcpy(grid, tmp, sizeof(int *) * MAP_SIZE);
+	
+}
+
 void show_map() {
 	for (int i = 0; i < MAP_SIZE; i++) {
 		for (int j = 0; j < MAP_SIZE; j++) {
