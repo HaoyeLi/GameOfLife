@@ -46,7 +46,28 @@ void init(char *config_file) {
 		}
 	}
 }
-
+int get_cnt(int x, int y) {
+	int cnt = 0;
+	int direction[8][2] = {{-1, -1},
+		{-1, 0},
+		{-1, 1},
+		{0,  -1},
+		{0,  1},
+		{1,  -1},
+		{1,  0},
+		{1,  1}};
+	for (int i = 0; i < 8; i++) {
+		int nx = x + direction[i][0];
+		int ny = y + direction[i][1];
+		if (nx < 0 || nx >= MAP_SIZE || ny < 0 || ny >= MAP_SIZE) {
+			continue;
+		}
+		if (grid[nx][ny] == 1) {
+			cnt++;
+		}
+	}
+	return cnt;
+}
 void update_cells() {
 	int **tmp = malloc(sizeof(int *) * MAP_SIZE);
 	for (int i = 0; i < MAP_SIZE; i++) {
