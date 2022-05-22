@@ -98,6 +98,19 @@ void update_cells() {
 	
 }
 
+void render(SDL_Renderer *renderer) {
+	for (int i = 0; i < MAP_SIZE; i++) {
+		for (int j = 0; j < MAP_SIZE; j++) {
+			if (grid[i][j] == 1) {
+				SDL_Rect rect = {i * CELL_SIZE, j * CELL_SIZE, CELL_SIZE, CELL_SIZE};
+				SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+				SDL_RenderFillRect(renderer, &rect);
+				
+			}
+		}
+	}
+}
+
 void show_map() {
 	for (int i = 0; i < MAP_SIZE; i++) {
 		for (int j = 0; j < MAP_SIZE; j++) {
