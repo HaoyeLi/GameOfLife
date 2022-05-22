@@ -56,7 +56,10 @@ void init(char *config_file) {
 			grid[i][j] = 0;
 		}
 	}
+	read_map(map_filename);
 }
+
+
 int get_cnt(int x, int y) {
 	int cnt = 0;
 	int direction[8][2] = {{-1, -1},
@@ -79,6 +82,7 @@ int get_cnt(int x, int y) {
 	}
 	return cnt;
 }
+
 void update_cells() {
 	int **tmp = malloc(sizeof(int *) * MAP_SIZE);
 	for (int i = 0; i < MAP_SIZE; i++) {
@@ -130,6 +134,7 @@ void show_map() {
 		printf("\n");
 	}
 }
+
 int main() {
 	init("config.txt");
 	SDL_Init(SDL_INIT_EVERYTHING);
@@ -157,5 +162,7 @@ int main() {
 		show_map();
 		SDL_Delay(1000);
 	}
-    return 0;
+	
+	
+	return 0;
 }
