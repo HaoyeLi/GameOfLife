@@ -9,6 +9,17 @@ char *map_filename = "map.txt";
 
 int **grid;
 
+void save_map(char *filename) {
+	FILE *fp = fopen(filename, "w");
+	for (int i = 0; i < MAP_SIZE; i++) {
+		for (int j = 0; j < MAP_SIZE; j++) {
+			fprintf(fp, "%d ", grid[i][j]);
+		}
+		fprintf(fp, "\n");
+	}
+	fclose(fp);
+}
+
 void read_map(char *filename) {
 	// 0000000000000
 	
